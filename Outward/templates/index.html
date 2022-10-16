@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robot" content="index, follow" />
+    <meta name="description" content="Newly creative innovative and design solution buisness." />
+    <meta name="keywords" content="buisness, problem solving, innovation, design, developer" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz@8..144&display=swap" rel="stylesheet">
+    <link async href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'images/logo.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <title>Outward Industries</title>
+</head>
+<body>
+    <!-- Nav Bar -->
+    <nav>
+        <div class="title-logo">
+            <img src="{% static 'images/logo.png' %}" alt="Outward Industries">
+            <h1>Outward Industries</h1>
+        </div>
+        <div class="nav-links">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="landing">
+        <h1>Outward Industries</h1>
+        <p>The place where history is made</p>
+    </div>
+</body>
+</html>
