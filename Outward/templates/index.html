@@ -10,6 +10,12 @@
     <meta name="keywords" content="buisness, problem solving, innovation, design, developer" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz@8..144&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+
     <link async href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="{% static 'images/logo.png' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'style.css' %}" />
@@ -18,22 +24,45 @@
 <body>
     <!-- Nav Bar -->
     <nav>
-        <div class="title-logo">
+        <div class="title-logo" onclick="window.location.reload()">
             <img src="{% static 'images/logo.png' %}" alt="Outward Industries">
             <h1>Outward Industries</h1>
         </div>
         <div class="nav-links">
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a onclick="window.location.reload()">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Portfolio</a></li>
                 <li><a href="#">Contact Us</a></li>
             </ul>
         </div>
     </nav>
-    <div class="landing">
-        <h1>Outward Industries</h1>
-        <p>The place where history is made</p>
+    <div class="landing" id="landing">
+        <div class="splash" id="splash"></div>
+        <div class="content" id="content">
+            <h1>Outward Industries</h1>
+            <p>Product Reengineering and Development</p>
+            <button id="button" onclick="fadeZoom()">Get Started</button>
+        </div>
     </div>
+    <div class="start" id="start">
+        <div class="splash" id="splash"></div>
+        <div class="content" id="content">
+            <h1>Our Mission</h1>
+            <div class="row mission-statement">
+                <div class="column-50">
+                    <p>Here at Outward Industries, we are devoted to delivering only the highest quality products to our clients.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore ad deleniti, minima ea nisi repudiandae hic dignissimos, nihil sit assumenda porro placeat iste mollitia aspernatur exercitationem, doloremque incidunt officiis. Voluptatum deleniti blanditiis nemo, modi, quas fuga debitis officiis harum eligendi officia ea odit aperiam quo assumenda voluptatibus esse laudantium pariatur.</p>
+                </div>
+                <div class="column-50">
+                    <img src="{% static 'images/outward.png' %}" alt="Outward Industries">
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <h1 id="footer-copyright">Copyright &copy | Outward Industries</h1>
+    </footer>
+    <script src="{% static 'script.js' %}"></script>
 </body>
 </html>
