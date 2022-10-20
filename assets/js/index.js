@@ -1,9 +1,13 @@
-var landing = document.querySelector("#landing")
+var nav = document.querySelector("#navbar");
+
+var landing = document.querySelector("#landing");
+var title = landing.querySelector("#title");
 var splash = landing.querySelector("#splash");
 var content = landing.querySelector("#content");
 var startButton = landing.querySelector("#button");
 
 var start = document.querySelector("#start");
+var missionTitle = start.querySelector("#missionTitle");
 var splashStart = start.querySelector("#splash");
 var startContent = start.querySelector("#content");
 
@@ -11,18 +15,26 @@ var footer = document.querySelector("#footer-show");
 var footer2 = document.querySelector("#footer-scroll");
 
 function fadeZoom() {
+    nav.classList.add("no-shadow");
     splash.style.opacity = 0;
     for (var i = 0; i < content.children.length; i++) {
         content.children[i].style.opacity = 0;
     }
+    for (var i = 0; i < landing.children.length; i++) {
+        landing.children[i].style.opacity = 0;
+    }
     splash.style.transform = "scale(3)";
     setTimeout(function() {
+        nav.classList.remove("no-shadow");
         landing.style.display = "none";
         start.style.display = "flex";
         splashStart.style.opacity = 1;
         setTimeout(function() {
             for (var i = 0; i < startContent.children.length; i++) {
                 startContent.children[i].style.opacity = 1;
+            }
+            for (var i = 0; i < start.children.length; i++) {
+                start.children[i].style.opacity = 1;
             }
         }, 15);
     }, 1500);
@@ -45,6 +57,14 @@ function switchPage() {
     fadeZoom();
 }
 
+function goHome() {
+    if (landing.style.display != "none") {
+        window.location.href = "#landing";
+    } else {
+        window.location.reload();
+    }
+}
+
 let opacity;
 
 document.addEventListener('scroll', () => {
@@ -55,9 +75,19 @@ document.addEventListener('scroll', () => {
         opacity += height/window.scrollY;
     }
     footer.style.opacity = opacity;
+    content.style.opacity = opacity;
+    if (window.innerWidth <= 1750) {
+        title.style.opacity = opacity; 
+        missionTitle.style.opacity = opacity;
+    } else {
+        title.style.opacity = 1;
+        missionTitle.style.opacity = 1;
+    }
     footer2.style.setProperty("--opacity", opacity);
+
 })
 
-
-document.getElementById("footer-copyright").innerHTML = "Copyright &copy" + new Date().getFullYear() + " | Outward Industries&trade;";
-document.getElementById("footer-copyright-2").innerHTML = "Copyright &copy" + new Date().getFullYear() + " | Outward Industries&trade;";
+window.addEventListener('load', function() {
+    document.getElementById("footer-copyright").innerHTML = "Copyright &copy" + new Date().getFullYear() + " | Outward Industries&trade;";
+    document.getElementById("footer-copyright-2").innerHTML = "Copyright &copy" + new Date().getFullYear() + " | Outward Industries&trade;";
+});

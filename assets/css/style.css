@@ -1,0 +1,604 @@
+/* Universal Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*::selection {
+    background-color: var(--primary-300);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Nanum Myeongjo', serif;
+    overflow-x: hidden;
+    font-weight: 100;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility; 
+}
+
+/* Root Colors */
+:root {
+    --primary-100: #f5eee0;
+    --primary-200: #DED2B6;
+    --primary-300: #B0AA9D;
+    --neutral-100: #000000b4;
+    --neutral-200: #5E594D; 
+    --neutral-800: #000000;
+}
+
+/* Nav Bar */
+nav.navbar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 90px;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 6px 4px 12px 12px var(--neutral-100);
+    z-index: 99;
+}
+
+.no-shadow {
+    box-shadow: none!important;
+}
+
+nav .title-logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center; 
+    gap: 10px;
+    margin-left: 10px;
+    color: var(--primary-100); 
+    font-size: 1.5em;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+nav .title-logo img {
+    height: 70px;
+}
+
+nav .nav-links {
+    width: 500px;
+}
+
+nav .nav-links ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-right: 20px;
+}
+
+nav .nav-links ul li {
+    list-style: none;
+}
+
+nav .nav-links ul li a {
+    color: var(--primary-100);
+    text-decoration: none;
+    position: relative;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+nav .nav-links ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--primary-100);
+    transform: scale(0);
+    transition: transform 0.2s ease-out;
+}
+
+nav .nav-links ul li a:hover::after {
+    content: '';
+    transform: scale(1);
+}
+
+@media screen and (max-width: 990px) {
+    nav {
+        height: 70px;
+    }
+
+    nav .title-logo {
+        margin-left: 5px;
+        font-size: 1em;
+    }
+
+    nav .title-logo img {
+        height: 50px;
+    }
+
+    nav .nav-links {
+        width: 400px;
+    }
+
+    nav .nav-links ul {
+        margin-right: 10px;
+    }
+
+    nav .nav-links ul li a {
+        font-size: 1em;
+    }
+}
+    
+
+/* Landing */
+.landing {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.landing .splash {
+    position: absolute;
+    overflow-y: hidden;
+    width: 100%;
+    height: 100%;
+    background: url("../images/cove.jpg");
+    background-attachment: fixed;
+    background-size: 62% 95%;
+    background-position: bottom 0% left 59%;
+    background-repeat: no-repeat;
+    z-index: 1;
+    transition: all 1s ease-in;
+    opacity: 1;
+}
+
+.landing::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--neutral-800);
+    z-index: -1;
+}
+
+.landing::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--neutral-100);
+    z-index: 1;
+}
+
+.landing .content {
+    z-index: 2;
+    height: 100%;
+    transition: opacity 0.3s ease-out;
+}
+
+.landing h1 {
+    z-index: 2;
+    font-size: 5em;
+    font-weight: 800;
+    color: var(--primary-100);
+    margin-top: calc(30px + 8%);
+    transition: opacity 0.3s ease-out;
+}
+
+.landing p {
+    font-size: 1.5em;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--primary-100);
+    margin-top: 5px;
+    transition: opacity 0.3s ease-out;
+}
+
+.landing button {
+    font-family: 'Nanum Myeongjo', serif;
+    position: relative;
+    font-weight: 700;
+    font-size: 16px;
+    margin-top: 65px;
+    width: 175px;
+    height: 50px;
+    padding: 10px;
+    box-shadow: 3px 2px 8px 5px var(--neutral-100); 
+    color: var(--neutral-200);
+    transition: opacity 0.3s ease-in-out 0s, color 2.5s ease 0.5s;
+    background-color: var(--primary-100);
+    border: none;
+    z-index: 0;
+}
+
+.landing button:hover {
+    transform: translate(3px, 2px);
+    box-shadow: 1px 2px 8px 2px var(--neutral-100) inset; 
+    border: none;
+    color: var(--primary-100);
+    transition: color 3s ease 0s;
+    cursor: pointer;
+}
+
+.landing button:not(:hover) {
+    transition-delay: 400ms;
+    transition: color 2.8s ease-in-out;
+}
+
+.landing button::after {
+    content: '';
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-300);
+    z-index: -1;
+    transform-origin: left;
+    transform: scaleX(0);
+    box-shadow: 1px 2px 8px 2px var(--neutral-200) inset; 
+    transition: transform 4s ease 0s;
+}
+
+.landing button:hover::after {
+    transform: scaleX(1);
+}
+
+.landing button:not(:hover)::after {
+    opacity: 0.5;
+    transform: scaleX(0);
+    transition: transform 1.5s linear;
+}
+ 
+@media screen and (max-width: 990px) {
+    .landing h1 {
+        font-size: 2.5em;
+    }
+
+    .landing p {
+        font-size: .75em;
+    }
+} 
+
+@media screen and (min-width: 1750px) {
+    .landing {
+        overflow: visible;
+    }
+
+    .landing h1 {
+        position: sticky;
+        top: 0px;
+    }
+}
+
+/* Start Page */
+.start {
+    display: none;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    opacity: 1;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 1s ease-in-out 0s;
+}
+
+.start::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    z-index: -1;
+}
+
+.start::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--neutral-100);
+    z-index: 1;
+}
+
+.start .splash {
+    opacity: 0;
+    position: absolute;
+    overflow-y: hidden;
+    width: 100%;
+    height: 100%;
+    background: url("../images/wood.jpg");
+    z-index: 1;
+    transition: all 1s ease-in;
+}
+
+.start .content {
+    z-index: 2;
+    height: 100%;
+}
+
+.start h1 {
+    z-index: 2;
+    opacity: 0;
+    font-size: 5em;
+    font-weight: 800;
+    color: var(--primary-100);
+    margin-top: calc(30px + 8%);
+    transition: opacity 0.3s ease-in-out 0s; 
+}
+
+.start p {
+    font-size: 1.5em;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--primary-100);
+    margin-top: 5px;
+}
+
+.start .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 20px;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out 0s;
+}
+
+.start .column-50 {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--primary-100);
+}
+
+.start .mission-statement {
+    margin-top: 100px;
+}
+
+.start .mission-statement > .column-50:first-child {
+    height: 500px;
+    width: 65%;
+}
+
+.start .mission-statement > .column-50:last-child {
+    width: 35%;
+}
+
+.start .mission-statement > .column-50:last-child img{
+    width: 100%;
+}
+
+.start button {
+    opacity: 0;
+    margin-top: 50px;
+    width: 150px;
+    height: 50px;
+    padding: 10px;
+    box-shadow: 6px 4px 8px 6px var(--neutral-100); 
+    transition: opacity 1s ease-in-out 0s;
+}
+
+.start button:hover {
+    transform: translate(6px, 4px);
+    box-shadow: none;
+}
+
+@media screen and (min-width: 1750px) {
+    .start {
+        overflow: visible;
+    }
+
+    .start h1 {
+        position: sticky;
+        top: 0px;
+    }
+}
+
+/* Footer */
+footer {
+    width: 100%;    
+    z-index: 99;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    transition: opacity 0.5s ease-out;
+}
+
+.show {
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: transparent;
+}
+
+.show h1 {
+    font-family: 'Nanum Myeongjo', serif;
+    color: var(--primary-100);
+    font-size: 15px;
+    font-style: italic;
+}
+
+.scroll {
+    width: 100%;
+    height: 250px;
+    position: absolute;
+    bottom: -250px;
+    left: 0;
+    --opacity: 1;
+    background-image: linear-gradient(to bottom, var(--primary-300), var(--neutral-100));
+    box-shadow: 0px 6px 9px 3px var(--neutral-100) inset; 
+    color: var(--neutral-800);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.scroll::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--neutral-800);
+    opacity: var(--opacity);
+    transition: opacity 0.5s ease-out;
+    pointer-events: none;
+}
+
+.scroll h1 {
+    font-family: 'Nanum Myeongjo', serif;
+    color: var(--neutral-100);
+    font-size: 15px;
+    font-style: italic;
+}
+
+.scroll .title {
+    font-size: 25px;
+    margin-top: -45px;
+}
+
+.scroll .subtitle {
+    font-size: 15px;
+    text-align: center;
+    width: 40%;
+    margin-top: -10px;
+    color: var(--neutral-100);
+}
+
+.scroll .socials {
+    width: 40%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 15px;
+    align-items: center;
+    width: 75px;
+    margin-top: -5px;
+}
+
+.scroll .socials i {
+    font-size: 27px;
+    color: var(--neutral-100);
+    opacity: 1;
+    transition: color 0.3s ease-out;
+}
+
+.scroll .socials i:hover {
+    color: var(--primary-100);
+    opacity: 0.8;
+}
+
+.scroll nav {
+    width: 100%;
+    height: 20px;
+    margin-top: -10px;
+    background: transparent;
+    box-shadow: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;    
+} 
+
+.scroll nav ul {
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;    
+}
+
+.scroll nav ul li {
+    list-style: none;
+}
+
+.scroll nav ul li a {
+    text-decoration: none;
+    color: var(--neutral-100);
+    position: relative;
+    cursor: pointer;
+}
+
+.scroll nav ul li a:hover {
+    color: var(--primary-100);
+}
+
+.scroll nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--primary-100);
+    opacity: 0.8;
+    transform: scale(0);
+    transition: transform 0.2s ease-out;
+}
+
+.scroll nav ul li a:hover::after {
+    content: '';
+    transform: scale(1);
+}
+
+.scroll #footer-copyright-2 {
+    font-family: 'Nanum Myeongjo', serif;
+    color: var(--neutral-100);
+    font-size: 15px;
+    font-style: italic;
+    width: 100%;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+    text-align: center;
+    color: var(--primary-100);
+    opacity: 0.6;
+    z-index: 1;
+}
+
+.scroll #footer-copyright-2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--neutral-800);
+    opacity: 0.2;
+    z-index: -1;
+}

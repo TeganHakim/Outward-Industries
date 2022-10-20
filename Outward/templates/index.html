@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robot" content="index, follow" />
-    <meta name="description" content="Newly creative innovative and design solution buisness." />
-    <meta name="keywords" content="buisness, problem solving, innovation, design, developer" />
+    <meta name="description" content="Web Development and Prototyping Business" />
+    <meta name="keywords" content="buisness, problem solving, innovation, design, developer, solutions, freelance, solid, quality" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz@8..144&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
@@ -18,19 +18,19 @@
 
     <link async href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="{% static 'images/logo.png' %}" type="image/x-icon">
-    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <title>Outward Industries</title>
 </head>
 <body>
     <!-- Nav Bar -->
-    <nav>
-        <div class="title-logo" onclick="window.location.reload()">
+    <nav class="navbar" id="navbar">
+        <div class="title-logo" onclick="goHome()">
             <img src="{% static 'images/logo.png' %}" alt="Outward Industries">
             <h1>Outward Industries</h1>
         </div>
         <div class="nav-links">
             <ul>
-                <li><a onclick="window.location.reload()">Home</a></li>
+                <li><a onclick="goHome()">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Portfolio</a></li>
                 <li><a href="#">Contact Us</a></li>
@@ -39,16 +39,16 @@
     </nav>
     <div class="landing" id="landing">
         <div class="splash" id="splash"></div>
+        <h1 id="title">Outward Industries</h1>
         <div class="content" id="content">
-            <h1>Outward Industries</h1>
-            <p>Product Reengineering and Development</p>
+            <p>Web Development and Prototyping</p>
             <button id="button" onclick="fadeZoom()">Get Started</button>
         </div>
     </div>
     <div class="start" id="start">
         <div class="splash" id="splash"></div>
+        <h1 id="missionTitle">Products</h1>
         <div class="content" id="content">
-            <h1>Our Mission</h1>
             <div class="row mission-statement">
                 <div class="column-50">
                     <p>Here at Outward Industries, we are devoted to delivering only the highest quality products to our clients.</p>
@@ -79,16 +79,16 @@
         </div>
         <nav>
             <ul>
-                <li><a onclick="window.location.reload()">Home</a></li>
+                <li><a onclick="goHome()">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Portfolio</a></li>
                 <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Terms of Use</a></li>
-                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="/terms-of-use/">Terms of Use</a></li>
+                <li><a href="/privacy-policy/">Privacy Policy</a></li>
             </ul>
         </nav>
         <h2 id="footer-copyright-2">Copyright &copy | Outward Industries</h2>
     </footer>
-    <script src="{% static 'script.js' %}"></script>
+    <script src="{% static 'js/index.js' %}"></script>
 </body>
 </html>
