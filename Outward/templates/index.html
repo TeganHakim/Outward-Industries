@@ -23,15 +23,17 @@
 </head>
 <body>
     <!-- Nav Bar -->
-    <nav class="navbar" id="navbar">
+    <nav class="navbar cove" id="navbar">
         <div class="title-logo" onclick="goHome()">
             <img src="{% static 'images/logo.png' %}" alt="Outward Industries">
             <h1>Outward Industries</h1>
         </div>
         <div class="nav-links">
             <ul>
-                <li><a onclick="goHome()">Home</a></li>
+                <!-- <li><a onclick="goHome()">Home</a></li> -->
                 <li><a href="#">About</a></li>
+                <li><a onclick="fadeZoom()">Products</a></li>
+                <li><a href="#">Pricing</a></li>
                 <li><a href="#">Portfolio</a></li>
                 <li><a href="#">Contact Us</a></li>
             </ul>
@@ -45,16 +47,20 @@
             <button id="button" onclick="fadeZoom()">Get Started</button>
         </div>
     </div>
-    <div class="start" id="start">
+    <div class="products" id="products">
         <div class="splash" id="splash"></div>
-        <h1 id="missionTitle">Products</h1>
+        <h1 id="productTitle">Products</h1>
         <div class="content" id="content">
-            <div class="row mission-statement">
-                <div class="column-50">
+            <div class="row product-info">
+                <div class="column-3">
                     <p>Here at Outward Industries, we are devoted to delivering only the highest quality products to our clients.</p>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore ad deleniti, minima ea nisi repudiandae hic dignissimos, nihil sit assumenda porro placeat iste mollitia aspernatur exercitationem, doloremque incidunt officiis. Voluptatum deleniti blanditiis nemo, modi, quas fuga debitis officiis harum eligendi officia ea odit aperiam quo assumenda voluptatibus esse laudantium pariatur.</p>
                 </div>
-                <div class="column-50">
+                <div class="column-3">
+                    <p>Here at Outward Industries, we are devoted to delivering only the highest quality products to our clients.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore ad deleniti, minima ea nisi repudiandae hic dignissimos, nihil sit assumenda porro placeat iste mollitia aspernatur exercitationem, doloremque incidunt officiis. Voluptatum deleniti blanditiis nemo, modi, quas fuga debitis officiis harum eligendi officia ea odit aperiam quo assumenda voluptatibus esse laudantium pariatur.</p>
+                </div>
+                <div class="column-3">
                     <img src="{% static 'images/outward.png' %}" alt="Outward Industries">
                 </div>
             </div>
