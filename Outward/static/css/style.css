@@ -22,6 +22,11 @@ body {
     text-rendering: optimizeLegibility; 
 }
 
+html, body {
+    background-color: var(--neutral-800);
+    color: var(--primary-100);
+}
+
 /* Root Colors */
 :root {
     --primary-100: #f5eee0;
@@ -32,6 +37,105 @@ body {
     --neutral-800: #000000;
 }
 
+/* Loader */
+.loader {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url("../images/wood.jpg");
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loader::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--neutral-100);
+    opacity: 1;
+}
+.loader-span {
+    transform: rotateZ(45deg);
+    perspective: 1000px;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    color: var(--primary-100);
+    opacity: 0.6;
+    z-index: 100;
+}
+.loader-span:before,
+.loader-span:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+    transform: rotateX(70deg);
+    animation: 1s spin linear infinite;
+}
+.loader-span:after {
+    color: var(--primary-100);
+    opacity: 0.3;
+    transform: rotateY(70deg);
+    animation-delay: .4s;
+}
+
+@keyframes rotate {
+    0% {
+      transform: translate(-50%, -50%) rotateZ(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotateZ(360deg);
+    }
+}
+
+@keyframes rotateccw {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(-360deg);
+    }
+}
+
+@keyframes spin {
+    0%,
+    100% {
+      box-shadow: .35em 0px 0 0px currentcolor;
+    }
+    12% {
+      box-shadow: .35em .35em 0 0 currentcolor;
+    }
+    25% {
+      box-shadow: 0 .35em 0 0px currentcolor;
+    }
+    37% {
+      box-shadow: -.35em .35em 0 0 currentcolor;
+    }
+    50% {
+      box-shadow: -.35em 0 0 0 currentcolor;
+    }
+    62% {
+      box-shadow: -.35em -.35em 0 0 currentcolor;
+    }
+    75% {
+      box-shadow: 0px -.35em 0 0 currentcolor;
+    }
+    87% {
+      box-shadow: .35em -.35em 0 0 currentcolor;
+    }
+}
+
 /* Nav Bar */
 nav.navbar {
     position: fixed;
@@ -39,8 +143,6 @@ nav.navbar {
     top: 0;
     width: 100%;
     height: 90px;
-    /* background-color: transparent; */
-    /* background: url("../images/cove.jpg"); */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -313,7 +415,7 @@ nav .nav-links ul li a:hover::after {
     }
 }
 
-/* Start Page */
+/* Product Page */
 .products {
     display: none;
     width: 100%;
@@ -407,19 +509,6 @@ nav .nav-links ul li a:hover::after {
     margin-top: 100px;
 }
 
-/* .products .product-info > .column-50:first-child {
-    height: 500px;
-    width: 65%;
-}
-
-.products .product-info > .column-50:last-child {
-    width: 35%;
-} */
-/* 
-.products .product-info > .column-50:last-child img{
-    width: 100%;
-} */
-
 .products .product-info .column-3 {
     width: 33%;
     height: 500px;
@@ -446,6 +535,131 @@ nav .nav-links ul li a:hover::after {
     }
 
     .products h1 {
+        position: sticky;
+        top: 0px;
+    }
+}
+
+/* Pricing Page */
+.pricing {
+    display: none;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    opacity: 1;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 1s ease-in-out 0s;
+}
+
+.pricing::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    z-index: -1;
+}
+
+.pricing::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--neutral-100);
+    z-index: 1;
+}
+
+.pricing .splash {
+    opacity: 0;
+    position: absolute;
+    overflow-y: hidden;
+    width: 100%;
+    height: 100%;
+    background: url("../images/wood.jpg");
+    z-index: 1;
+    transition: all 1s ease-in;
+}
+
+.pricing .content {
+    z-index: 2;
+    height: 100%;
+}
+
+.pricing h1 {
+    z-index: 99;
+    opacity: 0;
+    font-size: 5em;
+    font-weight: 800;
+    color: var(--primary-100);
+    margin-top: calc(40px + 4%);
+    transition: opacity 0.3s ease-in-out 0s; 
+}
+
+.pricing p {
+    font-size: 1.5em;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--primary-100);
+    margin-top: 5px;
+}
+
+.pricing .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 20px;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out 0s;
+    margin: 0 20px 0 20px;
+}
+
+.pricing .column-3 {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--primary-100);
+}
+
+.pricing .price-info {
+    margin-top: 100px;
+}
+
+.pricing .price-info .column-3 {
+    width: 33%;
+    height: 500px;
+}
+
+.pricing button {
+    opacity: 0;
+    margin-top: 50px;
+    width: 150px;
+    height: 50px;
+    padding: 10px;
+    box-shadow: 6px 4px 8px 6px var(--neutral-100); 
+    transition: opacity 1s ease-in-out 0s;
+}
+
+.pricing button:hover {
+    transform: translate(6px, 4px);
+    box-shadow: none;
+}
+
+@media screen and (min-width: 1750px) {
+    .pricing {
+        overflow: visible;
+    }
+
+    .pricing h1 {
         position: sticky;
         top: 0px;
     }
@@ -484,6 +698,7 @@ footer {
     bottom: -250px;
     left: 0;
     --opacity: 1;
+    background: var(--primary-100);
     background-image: linear-gradient(to bottom, var(--primary-300), var(--neutral-100));
     box-shadow: 0px 6px 9px 3px var(--neutral-100) inset; 
     color: var(--neutral-800);
