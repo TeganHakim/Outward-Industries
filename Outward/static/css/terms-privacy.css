@@ -183,6 +183,7 @@ nav .title-logo {
 
 nav .title-logo img {
     height: 70px;
+    filter: brightness(0) invert(1);
 }
 
 nav .nav-links {
@@ -317,18 +318,7 @@ nav .nav-links ul li a:hover::after {
 
 .terms-privacy p {
     font-weight: 400;
-}
-
-.terms-privacy p::after {
-    content: '';
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: var(--neutral-100);
-    z-index: 2;
-    opacity: 0.02;
+    color: var(--primary-100);
     pointer-events: none;
 }
 
@@ -338,7 +328,7 @@ nav .nav-links ul li a:hover::after {
     color:var(--primary-100);
     z-index: 99;
     margin-bottom: 5px;
-    text-shadow: 3px 3px 6px var(--primary-200);
+    text-shadow: 2px 1px 8px var(--primary-200);
 }
 .terms-privacy a {
     color:var(--primary-300);
@@ -350,7 +340,7 @@ nav .nav-links ul li a:hover::after {
     margin-bottom: 10px;
     color: var(--primary-100);
     z-index: 99;
-    text-shadow: 2px 3px 6px var(--primary-200);
+    text-shadow: 2px 1px 8px var(--primary-200);
 }
 .terms-privacy ol, .terms-privacy ul {
     margin-left: 50px;
