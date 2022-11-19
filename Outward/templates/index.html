@@ -31,8 +31,7 @@
         </div>
         <div class="nav-links">
             <ul>
-                <!-- <li><a onclick="goHome()">Home</a></li> -->
-                <li><a href="#">About</a></li>
+                <li><a onclick="fadeZoom('about')">About</a></li>
                 <li><a onclick="fadeZoom('products')">Products</a></li>
                 <li><a onclick="fadeZoom('pricing')">Pricing</a></li>
                 <li><a href="#">Portfolio</a></li>
@@ -46,6 +45,26 @@
         <div class="content" id="content">
             <p>Web Development and Prototyping</p>
             <button id="button" onclick="fadeZoom('products')">Get Started</button>
+        </div>
+    </div>
+    <div class="about" id="about">
+        <div class="splash" id="splash"></div>
+        <h1 id="aboutTitle">About</h1>
+        <div class="content" id="content">
+            <div class="row about-info">
+                <div class="column-3">
+                    <h1>Websites</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto eius ex accusantium dolore minima. Error, ipsam! Excepturi distinctio facilis aperiam sequi, impedit vitae aliquid tempore itaque accusamus, dolorem in quod.</p>
+                </div>
+                <div class="column-3">
+                    <h1>Applications</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis ipsam impedit in, enim praesentium voluptatibus repellendus saepe, maxime placeat consectetur ut! Nisi repudiandae dolore reprehenderit fugiat tempora, minus iusto officia?</p>
+                </div>
+                <div class="column-3">
+                    <h1>Services</h1>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis facilis impedit magni facere consequatur porro magnam, minus earum beatae, optio aliquam. Ipsam voluptatem itaque sit nihil sequi quod assumenda ducimus.</p>
+                </div>
+            </div>
         </div>
     </div>
     <div class="products" id="products">
@@ -107,7 +126,7 @@
         <nav>
             <ul>
                 <li><a onclick="goHome()">Home</a></li>
-                <li><a href="#">About</a></li>
+                <li><a onclick="fadeZoom('about')">About</a></li>
                 <li><a onclick="fadeZoom('products')">Products</a></li>
                 <li><a onclick="fadeZoom('pricing')">Pricing</a></li>
                 <li><a href="#">Portfolio</a></li>
@@ -120,7 +139,9 @@
     </footer>
     <!-- Loader -->
     <div class="loader">
-        <span class="loader-span"></span>
+        <span class="loader-span">
+            <img src="{% static 'images/Outward_Industries_Logo.png' %}" alt="Outward Industries">
+        </span>
     </div>
     <script src="{% static 'js/index.js' %}"></script>
 </body>

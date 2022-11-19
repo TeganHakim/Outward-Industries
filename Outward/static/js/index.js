@@ -6,6 +6,11 @@ var splash = landing.querySelector("#splash");
 var content = landing.querySelector("#content");
 var startButton = landing.querySelector("#button");
 
+var about = document.querySelector("#about");
+var aboutTitle = about.querySelector("#aboutTitle");
+var aboutSplash = about.querySelector("#splash");
+var aboutContent = about.querySelector("#content");
+
 var products = document.querySelector("#products");
 var productTitle = products.querySelector("#productTitle");
 var productSplash = products.querySelector("#splash");
@@ -25,6 +30,9 @@ function fadeZoom(screen, delay1=1500, delay2=15) {
         if (products.style.display == "flex") {
             if (screen == "products") {
                 return;
+            } else if (screen == "about") {
+                delay1 = 0;
+                toggle = false;
             } else if (screen == "pricing") {
                 delay1 = 0;
                 toggle = false;
@@ -33,6 +41,20 @@ function fadeZoom(screen, delay1=1500, delay2=15) {
         if (pricing.style.display == "flex") {
             if (screen == "pricing") {
                 return;
+            } else if (screen == "about") {
+                delay1 = 0;
+                toggle = false;
+            } else if (screen == "products") {
+                delay1 = 0;
+                toggle = false;
+            }
+        }
+        if (about.style.display == "flex") {
+            if (screen == "about") {
+                return;
+            } else if (screen == "pricing") {
+                delay1 = 0;
+                toggle = false;
             } else if (screen == "products") {
                 delay1 = 0;
                 toggle = false;
@@ -57,21 +79,58 @@ function fadeZoom(screen, delay1=1500, delay2=15) {
         
         landing.style.display = "none";
         
-        if (screen == "products") {
+        if (screen == "about") {
+            about.style.display = "flex";
+            aboutSplash.style.opacity = 1;
+
+            products.style.display = "none";
+            productSplash.style.opacity = 0;
+
+            pricing.style.display = "none";
+            priceSplash.style.opacity = 0;
+        } else if (screen == "products") {
             products.style.display = "flex";
             productSplash.style.opacity = 1;
 
             pricing.style.display = "none";
             priceSplash.style.opacity = 0;
+
+            about.style.display = "none";
+            aboutSplash.style.opacity = 0;
         } else if (screen == "pricing") {
             pricing.style.display = "flex";
             priceSplash.style.opacity = 1;
 
             products.style.display = "none";
             productSplash.style.opacity = 0;
+
+            about.style.display = "none";
+            aboutSplash.style.opacity = 0;
         }
         setTimeout(function() {
-            if (screen == "products") {
+            if  (screen == "about") {
+                window.location.href = "#about";
+                for (var i = 0; i < aboutContent.children.length; i++) {
+                    aboutContent.children[i].style.opacity = 1;
+                }
+                for (var i = 0; i < about.children.length; i++) {
+                    about.children[i].style.opacity = 1;
+                }
+
+                for (var i = 0; i < productContent.children.length; i++) {
+                    productContent.children[i].style.opacity = 0;
+                }
+                for (var i = 0; i < products.children.length; i++) {
+                    products.children[i].style.opacity = 0;
+                }
+
+                for (var i = 0; i < priceContent.children.length; i++) {
+                    priceContent.children[i].style.opacity = 0;
+                }
+                for (var i = 0; i < pricing.children.length; i++) {
+                    pricing.children[i].style.opacity = 0;
+                }
+            } else if (screen == "products") {
                 window.location.href = "#products";
                 for (var i = 0; i < productContent.children.length; i++) {
                     productContent.children[i].style.opacity = 1;
@@ -85,6 +144,13 @@ function fadeZoom(screen, delay1=1500, delay2=15) {
                 }
                 for (var i = 0; i < pricing.children.length; i++) {
                     pricing.children[i].style.opacity = 0;
+                }
+
+                for (var i = 0; i < aboutContent.children.length; i++) {
+                    aboutContent.children[i].style.opacity = 0;
+                }
+                for (var i = 0; i < about.children.length; i++) {
+                    about.children[i].style.opacity = 0;
                 }
             } else if (screen == "pricing") {
                 window.location.href = "#pricing";
@@ -100,6 +166,13 @@ function fadeZoom(screen, delay1=1500, delay2=15) {
                 }
                 for (var i = 0; i < products.children.length; i++) {
                     products.children[i].style.opacity = 0;
+                }
+
+                for (var i = 0; i < aboutContent.children.length; i++) {
+                    aboutContent.children[i].style.opacity = 0;
+                }
+                for (var i = 0; i < about.children.length; i++) {
+                    about.children[i].style.opacity = 0;
                 }
             }   
         }, delay2);
@@ -144,6 +217,9 @@ document.addEventListener('scroll', () => {
     content.style.opacity = opacity;
     if (window.innerWidth <= 1750) {
         title.style.opacity = opacity; 
+        if (about.style.display != "none") {
+            aboutTitle.style.opacity = opacity;
+        }
         if (products.style.display != "none") {
             productTitle.style.opacity = opacity;
         }
@@ -152,6 +228,9 @@ document.addEventListener('scroll', () => {
         }
     } else {
         title.style.opacity = 1;
+        if (about.style.display != "none") {
+            aboutTitle.style.opacity = 1;
+        }
         if (products.style.display != "none") {
             productTitle.style.opacity = 1;
         }
@@ -167,6 +246,9 @@ window.addEventListener('load', function() {
     document.getElementById("footer-copyright").innerHTML = "Copyright &copy" + new Date().getFullYear() + " | Outward Industries&trade;";
     document.getElementById("footer-copyright-2").innerHTML = "Copyright &copy" + new Date().getFullYear() + " | Outward Industries&trade;";
 
+    if (window.location.href.split("/#")[1] == "about") {
+        fadeZoom("about", 0, 0);
+    } 
     if (window.location.href.split("/#")[1] == "products") {
         fadeZoom("products", 0, 0);
     } 
