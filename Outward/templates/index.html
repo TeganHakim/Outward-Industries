@@ -16,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
 
-    <link async href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <link rel="shortcut icon" href="{% static 'images/logo.png' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
@@ -34,8 +34,8 @@
                 <li><a onclick="fadeZoom('about')">About</a></li>
                 <li><a onclick="fadeZoom('products')">Products</a></li>
                 <li><a onclick="fadeZoom('pricing')">Pricing</a></li>
-                <li><a href="#">Portfolio</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a onclick="fadeZoom('portfolio')">Portfolio</a></li>
+                <li><a onclick="fadeZoom('contact')">Contact Us</a></li>
             </ul>
         </div>
     </nav>
@@ -93,16 +93,66 @@
         <div class="content" id="content">
             <div class="row price-info">
                 <div class="column-3">
-                    <p>Here at Outward Industries, we are devoted to delivering only the highest quality products to our clients.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore ad deleniti, minima ea nisi repudiandae hic dignissimos, nihil sit assumenda porro placeat iste mollitia aspernatur exercitationem, doloremque incidunt officiis. Voluptatum deleniti blanditiis nemo, modi, quas fuga debitis officiis harum eligendi officia ea odit aperiam quo assumenda voluptatibus esse laudantium pariatur.</p>
+                    <h1>Websites</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto eius ex accusantium dolore minima. Error, ipsam! Excepturi distinctio facilis aperiam sequi, impedit vitae aliquid tempore itaque accusamus, dolorem in quod.</p>
                 </div>
                 <div class="column-3">
-                    <p>Here at Outward Industries, we are devoted to delivering only the highest quality products to our clients.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore ad deleniti, minima ea nisi repudiandae hic dignissimos, nihil sit assumenda porro placeat iste mollitia aspernatur exercitationem, doloremque incidunt officiis. Voluptatum deleniti blanditiis nemo, modi, quas fuga debitis officiis harum eligendi officia ea odit aperiam quo assumenda voluptatibus esse laudantium pariatur.</p>
+                    <h1>Applications</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis ipsam impedit in, enim praesentium voluptatibus repellendus saepe, maxime placeat consectetur ut! Nisi repudiandae dolore reprehenderit fugiat tempora, minus iusto officia?</p>
                 </div>
                 <div class="column-3">
-                    <img src="{% static 'images/Outward_Industries_Logo.png' %}" alt="Outward Industries">
+                    <h1>Services</h1>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis facilis impedit magni facere consequatur porro magnam, minus earum beatae, optio aliquam. Ipsam voluptatem itaque sit nihil sequi quod assumenda ducimus.</p>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio" id="portfolio">
+        <div class="splash" id="splash"></div>
+        <h1 id="portfolioTitle">Portfolio</h1>
+        <div class="content" id="content">
+            <div class="row portfolio-info">
+                <div class="column-3">
+                    <h1>Websites</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto eius ex accusantium dolore minima. Error, ipsam! Excepturi distinctio facilis aperiam sequi, impedit vitae aliquid tempore itaque accusamus, dolorem in quod.</p>
+                </div>
+                <div class="column-3">
+                    <h1>Applications</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis ipsam impedit in, enim praesentium voluptatibus repellendus saepe, maxime placeat consectetur ut! Nisi repudiandae dolore reprehenderit fugiat tempora, minus iusto officia?</p>
+                </div>
+                <div class="column-3">
+                    <h1>Services</h1>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis facilis impedit magni facere consequatur porro magnam, minus earum beatae, optio aliquam. Ipsam voluptatem itaque sit nihil sequi quod assumenda ducimus.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contact" id="contact">
+        <div class="splash" id="splash"></div>
+        <h1 id="contactTitle">Contact Us</h1>
+        <div class="content" id="content">
+            <form action="">
+                <div class="row">
+                    <input class="f-name" required type="text" placeholder="First Name">
+                    <input class="l-name" required type="text" placeholder="Last Name">
+                </div>
+                <div class="row">
+                    <input class="email" required type="email" placeholder="Email">
+                </div>
+                <div class="row">
+                    <textarea class="message" name="message" cols="30" rows="10" placeholder="Enter Message"></textarea>
+                </div>
+            </form>
+            <div class="socials">
+                <a href="https://instagram.com/outwardindustries" target="_blank">
+                    <i class="fab fa-instagram footer-icon"></i>
+                </a>
+                <a href="mailto: info@outwardindustries.com">
+                    <i class="far fa-envelope footer-icon"></i>
+                </a>
+                <a href="https://github.com/TeganHakim/Outward-Industries" target="_blank">
+                    <i class="fab fa-github footer-icon"></i>
+                </a>
             </div>
         </div>
     </div>
@@ -129,8 +179,8 @@
                 <li><a onclick="fadeZoom('about')">About</a></li>
                 <li><a onclick="fadeZoom('products')">Products</a></li>
                 <li><a onclick="fadeZoom('pricing')">Pricing</a></li>
-                <li><a href="#">Portfolio</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a onclick="fadeZoom('portfolio')">Portfolio</a></li>
+                <li><a onclick="fadeZoom('contact')">Contact Us</a></li>
                 <li><a href="/terms-of-use/">Terms of Use</a></li>
                 <li><a href="/privacy-policy/">Privacy Policy</a></li>
             </ul>

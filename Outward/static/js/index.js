@@ -21,43 +21,105 @@ var priceTitle = pricing.querySelector("#priceTitle");
 var priceSplash = pricing.querySelector("#splash");
 var priceContent = pricing.querySelector("#content");
 
+var portfolio = document.querySelector("#portfolio");
+var portfolioTitle = portfolio.querySelector("#portfolioTitle");
+var portfolioSplash = portfolio.querySelector("#splash");
+var portfolioContent = portfolio.querySelector("#content");
+
+var contact = document.querySelector("#contact");
+var contactTitle = contact.querySelector("#contactTitle");
+var contactSplash = contact.querySelector("#splash");
+var contactContent = contact.querySelector("#content");
+
 var footer = document.querySelector("#footer-show");
 var footer2 = document.querySelector("#footer-scroll");
 
 function fadeZoom(screen, delay1=1500, delay2=15) {
     let toggle = true;
     if (nav.classList.contains("wood")) {
-        if (products.style.display == "flex") {
-            if (screen == "products") {
+        if (about.style.display == "flex") {
+            if (screen == "about") {
                 return;
-            } else if (screen == "about") {
+            } else if (screen == "products") {
                 delay1 = 0;
                 toggle = false;
             } else if (screen == "pricing") {
+                delay1 = 0;
+                toggle = false;
+            } else if (screen == "portfolio") {
+                delay1 = 0;
+                toggle = false;
+            } else if (screen == "contact") {
+                delay1 = 0;
+                toggle = false;
+            }
+        }
+        if (products.style.display == "flex") {
+            if (screen == "about") {
+                delay1 = 0;
+                toggle = false;
+            } else if (screen == "products") {
+                return;
+            } else if (screen == "pricing") {
+                delay1 = 0;
+                toggle = false;
+            } else if (screen == "portfolio") {
+                delay1 = 0;
+                toggle = false;
+            } else if (screen == "contact") {
                 delay1 = 0;
                 toggle = false;
             }
         }
         if (pricing.style.display == "flex") {
-            if (screen == "pricing") {
-                return;
-            } else if (screen == "about") {
+            if (screen == "about") {
                 delay1 = 0;
                 toggle = false;
             } else if (screen == "products") {
+                delay1 = 0;
+                toggle = false;
+            } else if (screen == "pricing") {
+                return
+            } else if (screen == "portfolio") {
+                delay1 = 0;
+                toggle = false;
+            } else if (screen == "contact") {
                 delay1 = 0;
                 toggle = false;
             }
         }
-        if (about.style.display == "flex") {
+        if (portfolio.style.display == "flex") {
             if (screen == "about") {
-                return;
-            } else if (screen == "pricing") {
                 delay1 = 0;
                 toggle = false;
             } else if (screen == "products") {
                 delay1 = 0;
                 toggle = false;
+            } else if (screen == "pricing") {
+                delay1 = 0;
+                toggle = false;
+            } else if (screen == "portfolio") {
+                return;
+            } else if (screen == "contact") {
+                delay1 = 0;
+                toggle = false;
+            }
+        }
+        if (contact.style.display == "flex") {
+            if (screen == "about") {
+                delay1 = 0;
+                toggle = false;
+            } else if (screen == "products") {
+                delay1 = 0;
+                toggle = false;
+            } else if (screen == "pricing") {
+                delay1 = 0;
+                toggle = false;
+            } else if (screen == "portfolio") {
+                delay1 = 0;
+                toggle = false;
+            } else if (screen == "contact") {
+                return;
             }
         }
     } 
@@ -88,26 +150,114 @@ function fadeZoom(screen, delay1=1500, delay2=15) {
 
             pricing.style.display = "none";
             priceSplash.style.opacity = 0;
+
+            portfolio.style.display = "none";
+            portfolioSplash.style.opacity = 0;
+
+            contact.style.display = "none";
+            contactSplash.style.opacity = 0;
         } else if (screen == "products") {
+            about.style.display = "none";
+            aboutSplash.style.opacity = 0;
+
             products.style.display = "flex";
             productSplash.style.opacity = 1;
 
             pricing.style.display = "none";
             priceSplash.style.opacity = 0;
 
+            portfolio.style.display = "none";
+            portfolioSplash.style.opacity = 0;
+
+            contact.style.display = "none";
+            contactSplash.style.opacity = 0;
+        } else if (screen == "pricing") {
             about.style.display = "none";
             aboutSplash.style.opacity = 0;
-        } else if (screen == "pricing") {
-            pricing.style.display = "flex";
-            priceSplash.style.opacity = 1;
 
             products.style.display = "none";
             productSplash.style.opacity = 0;
 
+            pricing.style.display = "flex";
+            priceSplash.style.opacity = 1;
+
+            portfolio.style.display = "none";
+            portfolioSplash.style.opacity = 0;
+
+            contact.style.display = "none";
+            contactSplash.style.opacity = 0;
+        } else if (screen == "portfolio") {
             about.style.display = "none";
             aboutSplash.style.opacity = 0;
+
+            products.style.display = "none";
+            productSplash.style.opacity = 0;
+
+            pricing.style.display = "none";
+            priceSplash.style.opacity = 0;
+
+            portfolio.style.display = "flex";
+            portfolioSplash.style.opacity = 1;
+
+            contact.style.display = "none";
+            contactSplash.style.opacity = 0;
+        } else if (screen == "contact") {
+            about.style.display = "none";
+            aboutSplash.style.opacity = 0;
+
+            products.style.display = "none";
+            productSplash.style.opacity = 0;
+
+            pricing.style.display = "none";
+            priceSplash.style.opacity = 0;
+
+            portfolio.style.display = "none";
+            portfolioSplash.style.opacity = 0;
+
+            contact.style.display = "flex";
+            contactSplash.style.opacity = 1;
         }
         setTimeout(function() {
+            if (screen != "about") {
+                for (var i = 0; i < aboutContent.children.length; i++) {
+                    aboutContent.children[i].style.opacity = 0;
+                }
+                for (var i = 0; i < about.children.length; i++) {
+                    about.children[i].style.opacity = 0;
+                }
+            }
+            if (screen != "products") {
+                for (var i = 0; i < productContent.children.length; i++) {
+                    productContent.children[i].style.opacity = 0;
+                }
+                for (var i = 0; i < products.children.length; i++) {
+                    products.children[i].style.opacity = 0;
+                }
+            }
+            if (screen != "pricing") {
+                for (var i = 0; i < priceContent.children.length; i++) {
+                    priceContent.children[i].style.opacity = 0;
+                }
+                for (var i = 0; i < pricing.children.length; i++) {
+                    pricing.children[i].style.opacity = 0;
+                }
+            }
+            if (screen != "portfolio") {
+                for (var i = 0; i < portfolioContent.children.length; i++) {
+                    portfolioContent.children[i].style.opacity = 0;
+                }
+                for (var i = 0; i < portfolio.children.length; i++) {
+                    portfolio.children[i].style.opacity = 0;
+                }
+            }
+            if (screen != "contact") {
+                for (var i = 0; i < contactContent.children.length; i++) {
+                    contactContent.children[i].style.opacity = 0;
+                }
+                for (var i = 0; i < contact.children.length; i++) {
+                    contact.children[i].style.opacity = 0;
+                }
+            }
             if  (screen == "about") {
                 window.location.href = "#about";
                 for (var i = 0; i < aboutContent.children.length; i++) {
@@ -115,20 +265,6 @@ function fadeZoom(screen, delay1=1500, delay2=15) {
                 }
                 for (var i = 0; i < about.children.length; i++) {
                     about.children[i].style.opacity = 1;
-                }
-
-                for (var i = 0; i < productContent.children.length; i++) {
-                    productContent.children[i].style.opacity = 0;
-                }
-                for (var i = 0; i < products.children.length; i++) {
-                    products.children[i].style.opacity = 0;
-                }
-
-                for (var i = 0; i < priceContent.children.length; i++) {
-                    priceContent.children[i].style.opacity = 0;
-                }
-                for (var i = 0; i < pricing.children.length; i++) {
-                    pricing.children[i].style.opacity = 0;
                 }
             } else if (screen == "products") {
                 window.location.href = "#products";
@@ -139,19 +275,6 @@ function fadeZoom(screen, delay1=1500, delay2=15) {
                     products.children[i].style.opacity = 1;
                 }
 
-                for (var i = 0; i < priceContent.children.length; i++) {
-                    priceContent.children[i].style.opacity = 0;
-                }
-                for (var i = 0; i < pricing.children.length; i++) {
-                    pricing.children[i].style.opacity = 0;
-                }
-
-                for (var i = 0; i < aboutContent.children.length; i++) {
-                    aboutContent.children[i].style.opacity = 0;
-                }
-                for (var i = 0; i < about.children.length; i++) {
-                    about.children[i].style.opacity = 0;
-                }
             } else if (screen == "pricing") {
                 window.location.href = "#pricing";
                 for (var i = 0; i < priceContent.children.length; i++) {
@@ -160,21 +283,23 @@ function fadeZoom(screen, delay1=1500, delay2=15) {
                 for (var i = 0; i < pricing.children.length; i++) {
                     pricing.children[i].style.opacity = 1;
                 }
-
-                for (var i = 0; i < productContent.children.length; i++) {
-                    productContent.children[i].style.opacity = 0;
+            } else if (screen == "portfolio") {
+                window.location.href = "#portfolio";
+                for (var i = 0; i < portfolioContent.children.length; i++) {
+                    portfolioContent.children[i].style.opacity = 1;
                 }
-                for (var i = 0; i < products.children.length; i++) {
-                    products.children[i].style.opacity = 0;
+                for (var i = 0; i < portfolio.children.length; i++) {
+                    portfolio.children[i].style.opacity = 1;
                 }
-
-                for (var i = 0; i < aboutContent.children.length; i++) {
-                    aboutContent.children[i].style.opacity = 0;
+            } else if (screen == "contact") {
+                window.location.href = "#contact";
+                for (var i = 0; i < contactContent.children.length; i++) {
+                    contactContent.children[i].style.opacity = 1;
                 }
-                for (var i = 0; i < about.children.length; i++) {
-                    about.children[i].style.opacity = 0;
+                for (var i = 0; i < contact.children.length; i++) {
+                    contact.children[i].style.opacity = 1;
                 }
-            }   
+            } 
         }, delay2);
     }, delay1);
 }
@@ -193,7 +318,7 @@ startButton.addEventListener('mouseout', () => {
 });
 
 function switchPage() {
-    fadeZoom();
+    fadeZoom('products');
 }
 
 function goHome() {
@@ -226,6 +351,12 @@ document.addEventListener('scroll', () => {
         if (pricing.style.display != "none") {
             priceTitle.style.opacity = opacity;
         }
+        if (portfolio.style.display != "none") {
+            portfolioTitle.style.opacity = opacity;
+        }
+        if (contact.style.display != "none") {
+            contactTitle.style.opacity = opacity;
+        }
     } else {
         title.style.opacity = 1;
         if (about.style.display != "none") {
@@ -236,6 +367,12 @@ document.addEventListener('scroll', () => {
         }
         if (pricing.style.display != "none") {
             priceTitle.style.opacity = 1;
+        }
+        if (portfolio.style.display != "none") {
+            portfolioTitle.style.opacity = 1;
+        }
+        if (contact.style.display != "none") {
+            contactTitle.style.opacity = 1;
         }
     }
     footer2.style.setProperty("--opacity", opacity);
@@ -255,6 +392,12 @@ window.addEventListener('load', function() {
     if (window.location.href.split("/#")[1] == "pricing") {
         fadeZoom("pricing", 0, 0);
     } 
+    if (window.location.href.split("/#")[1] == "portfolio") {
+        fadeZoom("portfolio", 0, 0);
+    } 
+    if (window.location.href.split("/#")[1] == "contact") {
+        fadeZoom("contact", 0, 0);
+    } 
     loader();
 });
 
@@ -263,6 +406,6 @@ function loader() {
     var loader = document.querySelector(".loader");
     loader.style.opacity = 1;
     loader.style.display = "flex";
-    $(".loader").fadeOut(2000);
-    $(".loader-span").fadeOut(1000);
+    $(".loader").fadeOut(1000);
+    $(".loader-span").fadeOut(2000);
 }

@@ -7,6 +7,6 @@ function loader() {
     var loader = document.querySelector(".loader");
     loader.style.opacity = 1;
     loader.style.display = "flex";
-    $(".loader").fadeOut(2000);
-    $(".loader-span").fadeOut(1000);
+    $(".loader").fadeOut(1000);
+    $(".loader-span").fadeOut(2000);
 }
