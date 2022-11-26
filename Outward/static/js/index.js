@@ -34,7 +34,15 @@ var contactContent = contact.querySelector("#content");
 var footer = document.querySelector("#footer-show");
 var footer2 = document.querySelector("#footer-scroll");
 
+var burger = document.querySelector(".burger");
+var mobileNav = document.querySelector(".mobile-nav");
+
 function fadeZoom(screen, delay1=1500, delay2=15) {
+
+    if (burger.classList.contains("burger-active")) {
+        burger.click();
+    }
+
     let toggle = true;
     if (nav.classList.contains("wood")) {
         if (about.style.display == "flex") {
@@ -409,3 +417,29 @@ function loader() {
     $(".loader").fadeOut(1000);
     $(".loader-span").fadeOut(2000);
 }
+
+// Burger
+var animatingBurger = false;
+burger.addEventListener('click', () => {
+    if (animatingBurger) {
+        return
+    }
+    animatingBurger = true;
+    footer2.classList.toggle("hide-footer");
+    burger.classList.toggle("burger-active");
+    if (mobileNav.classList.contains("mobile-nav-active")) {
+        mobileNav.setAttribute("style", "opacity: 0;");
+        setTimeout(() => {
+            mobileNav.classList.remove("mobile-nav-active");
+            animatingBurger = false;
+        }, 500);
+    } else {        
+        mobileNav.classList.add("mobile-nav-active");
+        setTimeout(() => {
+            mobileNav.setAttribute("style", "opacity: 1;");
+        }, 50);
+        setTimeout(() => {
+            animatingBurger = false;
+        }, 500);
+    }
+})

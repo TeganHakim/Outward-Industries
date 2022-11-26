@@ -253,8 +253,87 @@ nav .nav-links ul li a:hover::after {
     transform: scale(1);
 }
 
+.burger {
+    display: none;
+    width: 0;
+    height: 0;
+    position: absolute;
+    z-index: 101;
+    top: 20px;
+    right: 0;
+}
+
+.burger > * {
+    width: 30px;
+    height: 3px;
+    background: var(--primary-100);
+    margin: 5px;
+    transition: all 0.3s ease-in-out;
+    z-index: 1;
+    position: relative;
+    transform-origin: right;
+}
+
+.burger.burger-active .line1 {
+    transform: rotate(-45deg) translate(1px, -2px);
+}
+.burger.burger-active .line2 {
+    opacity: 0;
+}
+.burger.burger-active .line3 {
+    transform: rotate(45deg) translate(1px, 2px);
+}
+
+.mobile-nav {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    background: var(--neutral-800);
+    opacity: 0;
+    transition: opacity 500ms ease-in-out;
+}
+
+.mobile-nav-active {
+    display: flex;
+}
+
+.mobile-nav-active ul li {
+    list-style: none;
+    margin: 50px 0;
+}
+
+.mobile-nav-active ul li a {
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 3em;
+    cursor: pointer;
+
+    background-image: linear-gradient(
+    to right,
+    var(--neutral-200),
+    var(--neutral-200) 50%,
+    var(--primary-100) 50%
+    );
+    background-size: 200% 100%;
+    background-position: 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.3s ease-in-out;
+}
+
+.mobile-nav-active ul li a:hover {
+    background-position: 0;
+}
+
 @media screen and (max-width: 990px) {
-    nav {
+    nav.navbar {
         height: 70px;
     }
 
@@ -268,16 +347,24 @@ nav .nav-links ul li a:hover::after {
     }
 
     nav .nav-links {
-        width: 400px;
+        /* width: 400px; */
+        display: none;
     }
 
-    nav .nav-links ul {
+    .burger {
+        display: block;
+        width: 30px;
+        height: 30px;
+        margin-right: 20px;
+        cursor: pointer;
+    }
+    /* nav .nav-links ul {
         margin-right: 10px;
     }
 
     nav .nav-links ul li a {
         font-size: 1em;
-    }
+    } */
 }
     
 
@@ -1300,6 +1387,10 @@ footer {
     background-color: var(--neutral-800);
     opacity: 0.2;
     z-index: -1;
+}
+
+.hide-footer {
+    display: none!important;
 }
 
 @media screen and (max-width: 990px) {
