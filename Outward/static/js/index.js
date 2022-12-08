@@ -414,8 +414,10 @@ function loader() {
     var loader = document.querySelector(".loader");
     loader.style.opacity = 1;
     loader.style.display = "flex";
-    $(".loader").fadeOut(1000);
-    $(".loader-span").fadeOut(2000);
+    setTimeout(() => {
+        $(".loader").fadeOut(500);
+        $(".loader-span").fadeOut(500);
+    }, 1100)
 }
 
 // Burger
