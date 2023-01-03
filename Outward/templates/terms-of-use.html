@@ -26,7 +26,7 @@
      <!-- Nav Bar -->
      <nav class="navbar">
         <div class="title-logo" onclick="window.location = '/'">
-            <img src="{% static 'images/logo.png' %}" alt="Outward Industries">
+            <img src="{% static 'images/Outward_Industries_Logo.png' %}" alt="Outward Industries">
             <h1>Outward Industries</h1>
         </div>
         <div class="nav-links">
@@ -175,19 +175,17 @@
         </div>
         <nav>
             <ul>
-                <li><a href="/">Home</a></li>
+                <li><a onclick="window.location = '/'">Home</a></li>
                 <li><a onclick="window.location = '/#about'">About</a></li>
                 <li><a onclick="window.location = '/#products'">Products</a></li>
                 <li><a onclick="window.location = '/#pricing'">Pricing</a></li>
                 <li><a onclick="window.location = '/#portfolio'">Portfolio</a></li>
                 <li><a onclick="window.location = '/#contact'">Contact Us</a></li>
-                <li><a href="#terms">Terms of Use</a></li>
+                <li><a href="/terms-of-use/">Terms of Use</a></li>
                 <li><a href="/privacy-policy/">Privacy Policy</a></li>
             </ul>
         </nav>
-        <div class="copyright">
-            <h2 id="footer-copyright-2">Copyright &copy | Outward Industries</h2>
-        </div>
+        <h2 id="footer-copyright-2">Copyright &copy | Outward Industries</h2>
     </footer>
      <!-- Loader -->
     <div class="loader">

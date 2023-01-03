@@ -299,12 +299,12 @@ footer {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  transition: opacity 0.5s ease-out;
 }
 
 .scroll {
   width: 100%;
   height: 250px;
+  position: absolute;
   background: var(--primary-100);
   background-image: linear-gradient(
     to bottom,
@@ -313,12 +313,12 @@ footer {
   );
   box-shadow: 0px 6px 9px 3px var(--neutral-100) inset;
   color: var(--neutral-800);
-  opacity: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 20px;
+  text-align: center;
 }
 
 .scroll::after {
@@ -329,8 +329,7 @@ footer {
   width: 100%;
   height: 100%;
   background-color: var(--neutral-800);
-  opacity: 1;
-  transition: opacity 0.5s ease-out;
+  opacity: 0;
   pointer-events: none;
 }
 
@@ -349,18 +348,17 @@ footer {
 .scroll .subtitle {
   font-size: 15px;
   text-align: center;
-  width: 40%;
-  margin-top: -10px;
+  margin: -10px 30% 0 30%;
   color: var(--neutral-100);
 }
 
 .scroll .socials {
-  width: 40%;
+  width: 50%;
   height: 40px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  gap: 15px;
+  gap: 25px;
   align-items: center;
   width: 75px;
   margin-top: -5px;
@@ -431,11 +429,6 @@ footer {
   transform: scale(1);
 }
 
-.copyright {
-  width: 100%;
-  position: absolute;
-}
-
 .scroll #footer-copyright-2 {
   font-family: "Nanum Myeongjo", serif;
   color: var(--neutral-100);
@@ -444,7 +437,8 @@ footer {
   width: 100%;
   padding: 10px;
   position: absolute;
-  bottom: -125px;
+  bottom: 0;
+  left: 0;
   margin: 0;
   text-align: center;
   color: var(--primary-100);
@@ -462,4 +456,112 @@ footer {
   background-color: var(--neutral-800);
   opacity: 0.2;
   z-index: -1;
+}
+
+@media screen and (max-width: 1450px) {
+  .scroll nav ul {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 1250px) {
+  .scroll {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    min-height: 250px;
+    max-height: 350px;
+    background: var(--primary-100);
+    background-image: linear-gradient(
+      to bottom,
+      var(--primary-300),
+      var(--neutral-100)
+    );
+    box-shadow: 0px 6px 9px 3px var(--neutral-100) inset;
+    color: var(--neutral-800);
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  .scroll::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--neutral-800);
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+    pointer-events: none;
+  }
+  .scroll .title {
+    margin-top: -45px;
+  }
+  .scroll .subtitle {
+    margin: -10px 15% 0 15%;
+  }
+  .scroll nav ul {
+    width: 60%;
+  }
+  .scroll h1,
+  .scroll .title,
+  .scroll .subtitle,
+  .scroll .socials,
+  .scroll nav,
+  .scroll #footer-copyright-2 {
+    z-index: 100;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .scroll nav ul {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 800px) {
+  .scroll nav ul {
+    width: 85%;
+  }
+}
+@media screen and (max-width: 710px) {
+  .scroll .subtitle {
+    margin: -10px 10% 0 10%;
+  }
+  .scroll {
+    height: 270px;
+  }
+  .scroll nav ul {
+    width: 85%;
+  }
+}
+@media screen and (max-width: 650px) {
+  .scroll {
+    height: 280px;
+  }
+  .scroll .subtitle {
+    margin: -10px 5% 0 5%;
+  }
+  .scroll nav ul {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .scroll {
+    max-height: 450px !important;
+    height: 450px;
+  }
+  .scroll nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .scroll nav {
+    margin-top: 70px;
+  }
+  .scroll nav {
+    margin-bottom: 80px;
+  }
 }
