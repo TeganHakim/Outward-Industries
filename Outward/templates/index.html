@@ -72,12 +72,12 @@
                 </div>
                 <div class="row about-columns">
                     <div class="column-2">
-                        <img src="https://st3.depositphotos.com/4111759/13425/v/600/depositphotos_134255534-stock-illustration-headshot-male-default-profile-gray.jpg" alt="Tegan Hakim headshot">
+                        <img src="{% static 'images/Tegan_Headshot.jpg' %}" alt="Tegan Hakim headshot">
                         <span class="name">Tegan Hakim</span>
                         <span class="description">Co-Founder | Lead Developer</span>
                     </div>
                     <div class="column-2">
-                        <img src="https://st3.depositphotos.com/4111759/13425/v/600/depositphotos_134255534-stock-illustration-headshot-male-default-profile-gray.jpg" alt="Tyler Lumpkin headshot">
+                        <img src="{% static 'images/Tyler_Headshot.jpg' %}" alt="Tyler Lumpkin headshot">
                         <span class="name">Tyler Lumpkin</span>
                         <span class="description">Co-Founder | Executive Director</span>
                     </div>
@@ -160,14 +160,24 @@
         <div class="content" id="content">
             <form action="">
                 <div class="row">
-                    <input class="f-name" required type="text" placeholder="First Name">
-                    <input class="l-name" required type="text" placeholder="Last Name">
+                    <input class="f-name" required type="text" placeholder="First Name" autcomplete="on">
+                    <input class="l-name" required type="text" placeholder="Last Name" autcomplete="on">
                 </div>
                 <div class="row">
-                    <input class="email" required type="email" placeholder="Email">
+                    <input class="email" required type="email" placeholder="Email" autcomplete="on">
                 </div>
                 <div class="row">
-                    <textarea class="message" name="message" cols="30" rows="10" placeholder="Enter Message"></textarea>
+                    <input class="subject" required type="text" placeholder="Subject" list="subject-options">
+                </div>
+                <datalist id="subject-options">
+                    <option value="Website Development">
+                    <option value="Software Development">
+                    <option value="Specialized Services">
+                    <option value="Pricing Inquiry">
+                    <option value="Other">
+                </datalist>
+                <div class="row">
+                    <textarea required class="message" name="message" cols="30" rows="10" placeholder="Enter Message"></textarea>
                 </div>
                 <input type="submit" value="Submit">
             </form>
@@ -189,7 +199,7 @@
     </footer>
     <footer  class="scroll" id="footer-scroll">
         <h1 class="title">Outward Industries</h1>
-        <p class="subtitle">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse alias molestiae iusto deleniti accusantium eos illum quos quod, eum, maiores similique? Autem, expedita possimus quae odit nihil iusto repudiandae recusandae sit laudantium dolor molestiae, voluptate cupiditate, ut veniam?</p>
+        <p class="subtitle">Our <b><u><a onclick="fadeZoom('about')">mission</a></u></b> is to empower small businesses with custom software solutions that are tailored to their unique needs and goals. We are dedicated to delivering high-quality products and exceptional customer service that help our clients achieve success and growth through technology. We believe in building strong, long-term relationships with our clients and strive to exceed their expectations at every step of the process.</p>
         <div class="socials">
             <a href="https://instagram.com/outwardindustries" target="_blank">
                 <i class="fab fa-instagram footer-icon"></i>

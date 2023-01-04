@@ -413,12 +413,15 @@ window.addEventListener("load", function () {
 
 // Loader
 function loader() {
+  window.scrollTo(0, 0);
+  document.body.style = "overflow-y: hidden;";
   var loader = document.querySelector(".loader");
   loader.style.opacity = 1;
   loader.style.display = "flex";
   setTimeout(() => {
     $(".loader").fadeOut(500);
     $(".loader-span").fadeOut(500);
+    document.body.style = "overflow-y: scroll;";
   }, 1100);
 }
 
@@ -448,13 +451,14 @@ burger.addEventListener("click", () => {
   }
 });
 
+const aboutCards = Array.from(document.querySelectorAll(".about .about-info .column-2"));
 const productCards = Array.from(document.querySelectorAll(".products .product-info .column-3"));
 const pricingCards = Array.from(document.querySelectorAll(".pricing .price-info .column-3"));
 
-const cards = productCards.concat(pricingCards);
+const cards = aboutCards.concat(productCards).concat(pricingCards);
 
 const settings = {
-  strength: 5,
+  strength: 4,
   perspective: 1000,
 }
 

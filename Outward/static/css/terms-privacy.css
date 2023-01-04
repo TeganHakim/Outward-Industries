@@ -92,7 +92,7 @@ nav.navbar {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 6px 4px 12px 12px var(--neutral-100);
+  box-shadow: 6px 4px 70px 1px #e0dac87d;
   z-index: 99;
   border-bottom: 1px solid var(--primary-100);
 }
@@ -348,7 +348,18 @@ footer {
 .scroll .subtitle {
   font-size: 15px;
   text-align: center;
-  margin: -10px 30% 0 30%;
+  margin: -10px 20% 0 20%;
+  color: var(--neutral-100);
+  line-height: 18px;
+}
+
+.scroll .subtitle b {
+  font-weight: 800;
+}
+
+.scroll .subtitle a {
+  text-decoration: none;
+  transition: color 0.3s ease-out;
   color: var(--neutral-100);
 }
 
@@ -457,7 +468,12 @@ footer {
   opacity: 0.2;
   z-index: -1;
 }
-
+@media screen and (min-width: 1200px) {
+  .scroll .subtitle b:hover a {
+    color: var(--primary-100);
+    cursor: pointer;
+  }
+}
 @media screen and (max-width: 1450px) {
   .scroll nav ul {
     width: 50%;
@@ -539,7 +555,7 @@ footer {
 }
 @media screen and (max-width: 650px) {
   .scroll {
-    height: 280px;
+    height: 310px;
   }
   .scroll .subtitle {
     margin: -10px 5% 0 5%;
@@ -550,8 +566,8 @@ footer {
 }
 @media screen and (max-width: 550px) {
   .scroll {
-    max-height: 450px !important;
-    height: 450px;
+    max-height: 500px !important;
+    height: 500px;
   }
   .scroll nav ul {
     display: flex;
