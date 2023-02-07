@@ -345,7 +345,7 @@ document.addEventListener("scroll", () => {
   }
   footer.style.opacity = opacity;
   content.style.opacity = opacity;
-  if (window.innerWidth <= 1750) {
+  if (window.innerWidth <= 1750 && window.innerHeight >= 900) {
     title.style.opacity = opacity;
     if (about.style.display != "none") {
       aboutTitle.style.opacity = opacity;
@@ -413,12 +413,15 @@ window.addEventListener("load", function () {
 
 // Loader
 function loader() {
+  window.scrollTo(0, 0);
+  document.body.style = "overflow-y: hidden;";
   var loader = document.querySelector(".loader");
   loader.style.opacity = 1;
   loader.style.display = "flex";
   setTimeout(() => {
     $(".loader").fadeOut(500);
     $(".loader-span").fadeOut(500);
+    document.body.style = "overflow-y: scroll;";
   }, 1100);
 }
 
@@ -447,3 +450,39 @@ burger.addEventListener("click", () => {
     }, 500);
   }
 });
+
+const aboutCards = Array.from(document.querySelectorAll(".about .about-info .column-2"));
+const productCards = Array.from(document.querySelectorAll(".products .product-info .column-3"));
+const pricingCards = Array.from(document.querySelectorAll(".pricing .price-info .column-3"));
+
+const cards = aboutCards.concat(productCards).concat(pricingCards);
+
+const settings = {
+  strength: 4,
+  perspective: 1000,
+}
+
+cards.forEach((card) => {
+  card.addEventListener("mousemove", cardMouseMove);
+  card.addEventListener("mouseout", cardMouseOut);
+});
+
+function cardMouseMove(event) {
+  if (window.innerWidth >= 1200) {
+    const card = event.currentTarget;
+    const cardWidth = card.offsetWidth;
+    const cardHeight = card.offsetHeight;
+    const centerX = card.offsetLeft + cardWidth/2;
+    const centerY = card.offsetTop + cardHeight/2;
+    const mouseX = event.clientX - centerX;
+    const mouseY = event.clientY - centerY;
+    const rotateX = (settings.strength*mouseY/(cardHeight/2)).toFixed(2);
+    const rotateY = ((-1)*settings.strength*mouseX/(cardWidth/2)).toFixed(2);
+    card.style.transform = `perspective(${settings.perspective}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  }
+}
+
+function cardMouseOut(event) {
+  const card = event.currentTarget;
+  card.style.transform = 'rotateX(0deg) rotateY(0deg)';
+}

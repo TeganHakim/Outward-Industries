@@ -90,7 +90,16 @@
         <h1 id="productTitle">Products</h1>
         <div class="content" id="content">
             <div class="row product-info">
-                <div class="column-3">
+                {% for product in products %}
+                    <div class="column-3">
+                        <div class="inner">
+                            <h1>{{product.title}}</h1>
+                            <p>{{product.description}}</p>
+                            <button>Get a quote</button>
+                        </div>
+                    </div>
+                {% endfor %}
+                <!-- <div class="column-3">
                     <div class="inner">
                         <h1>Website Development</h1>
                         <p>We specialize in the design and development of custom software solutions for a wide range of businesses. Our website development service includes everything from the initial concept phase to the final launch and maintenance of the site. We prioritize delivering high-quality, high-performing websites that meet the unique needs of our diverse clientele while creating a visually appealing and user-friendly experience. Whether you're a small business or a large corporation, we have the expertise and resources to deliver a website that exceeds all expectations.</p>
@@ -110,7 +119,7 @@
                         <p>We offer a range of specialized services to support our clients. These services can range from website and application maintenance to custom integrations and extensions. We understand that the needs of businesses can evolve over time, and we are dedicated to helping our clients adapt to these changes. Our team is always available to provide ongoing support and make any updates or modifications necessary to ensure that our clients' systems are running smoothly and efficiently. With our services, we can assist clients in maximizing the potential of their software solutions.</p>
                         <button>Get a quote</button>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
